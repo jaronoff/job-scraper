@@ -1,2 +1,48 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<%= 
+
+  require 'rubygems'
+  require 'nokogiri'
+  require 'open-uri'
+
+
+time = Time.new
+month = I18n.t("date.abbr_month_names")[time.month]
+day = time.day
+
+
+#United States
+cities = [
+  "sfbay", "losangeles", "athensga", "phoenix", "santabarbara", "denver",
+  "panamacity", "miami", "austin", "bakersfield", "keys", "newyork"
+  ]
+
+
+cities.map do |city|
+
+#Search Terms
+
+search_terms = ["ruby on rails", "rails", "junior rails"]
+
+search_terms.map do |term|
+
+      escaped_term = CGI.escape(term)
+
+      url = "http://#{city}.craigslist.org/search/jjj?query=#{escaped_term}&catAbb=jjj&srchType=A"
+      doc = Nokogiri::HTML(open(url))
+      
+      doc.css(".row").map do |row|
+
+        text = row.css("a")[0].text
+
+        link = row.css("a")[0][:href]
+      
+        raw "#{text} #{link}<br>".html_safe   
+      
+      end
+
+end
+
+end
+
+
+ %>
