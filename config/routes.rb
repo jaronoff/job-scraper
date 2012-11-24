@@ -1,9 +1,16 @@
 Clss::Application.routes.draw do
-  get "pages/home"
-
-  get "pages/about"
-
+  
   root :to => 'pages#home'
+
+    
+  match '/home' => 'pages#home'
+
+  match '/about' => 'pages#about'
+
+  match '/scraper' => 'pages#scraper'
+
+
+
 
 
   # The priority is based upon order of creation:

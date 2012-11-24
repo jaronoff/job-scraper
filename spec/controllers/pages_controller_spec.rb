@@ -17,5 +17,14 @@ describe PagesController do
       response.should render_template('about')
     end
   end
+  
+  
+  describe "GET scraper" do
+    it 'get scraper is successful' do
+      xhr :get, :scraper
+      response.should be_success
+      response.should render_template('scraper')
+    end
+  end
 
 end

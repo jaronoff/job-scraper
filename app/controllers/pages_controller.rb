@@ -1,12 +1,30 @@
 class PagesController < ApplicationController
+
   def home
+    
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @posts }
+    end
   end
 
   def about
-    scrap_cl
+    
+    #scrap_cl
+    
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @posts }
+    end
+    
+
   end
   
-  
+  def scraper
+    respond_to do |format|
+      format.js 
+    end
+  end
   
   private 
   
