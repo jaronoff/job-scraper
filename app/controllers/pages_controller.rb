@@ -60,6 +60,8 @@ class PagesController < ApplicationController
               doc.css(".row").map do |row|
                   
                 date = row.css(".itemdate").text
+                
+                location = row.css(".itempn").text.to_s[2..-2]    
                     
                 a_tag = row.css("a")[0]
               
@@ -68,8 +70,8 @@ class PagesController < ApplicationController
                 link = a_tag[:href]
                 
                 if date.include? "#{month} #{day}" 
-   
-                  @strings << "#{date} #{text} <a href='#{link}'>Link</a>"
+
+                  @strings << "#{date} #{text} <a href='#{link}'>Link</a> in #{location}"
    
                 end
             
