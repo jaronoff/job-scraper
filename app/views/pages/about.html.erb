@@ -2,11 +2,12 @@
 <br>
 <br>
 
-<div class="span10">
+<div class="span10 offset1">
   <table class="table table-striped">
   <thead>
-    <caption><h2>Rails Job Finder For <%= time1= Time.new %></h2></caption>
+    <caption><h2>Rails Job Finder For <%= @time %></h2></caption>
     <tr>
+      <th>City</th>
       <th>Date</th>
       <th>Title</th>
       <th>Link</th>
@@ -15,8 +16,11 @@
     </tr>
   </thead>
   <tbody>   
-    <% @posts.each do |post| %>
-      <%= raw(post) %>
+    
+    <% unless @posts.empty? %>
+      <% @posts.each do |post| %>
+        <%= raw(post) %>
+      <% end %>
     <% end %>
   </tbody>
   <table>

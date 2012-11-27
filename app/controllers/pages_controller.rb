@@ -1,5 +1,7 @@
 class PagesController < ApplicationController
 
+  helper_method :daytime
+  
   def home
     
     respond_to do |format|
@@ -30,15 +32,25 @@ class PagesController < ApplicationController
   
 private 
 
+    def daytime
+      time = Time.new
+      puts month = I18n.t("date.abbr_month_names")[time.month]
+      puts day = time.day
+      
+    end
+
+
     def scrap_cl
 
       require 'rubygems'
       require 'nokogiri'
       require 'open-uri'
+
                  
       time = Time.new
       month = I18n.t("date.abbr_month_names")[time.month]
       day = time.day
+      @time = "#{month} #{day}"
       @posts = []
       
           
@@ -75,11 +87,16 @@ private
                             
                             if date.include? "#{month} #{day}"
             
-                              @posts << "<thead><tr><td><h4>#{city}</h4></td></tr></thead><tr><td>#{date}</td><td>#{text}</td><td><a href='#{link}'>Link</a></td><td>#{location}</td><td><button class='btn btn-success'>Job Added</button></td></tr>"
-               
-
-                                                     
-               
+                              @posts << "<tr><td>#{city.capitalize}</td>"
+                              
+                              @posts << "<td>#{text}</td>"
+                              
+                              @posts << "<td><a href='#{link}'>Link</a></td>"
+                              
+                              @posts << "<td>#{location}</td>"
+                              
+                              @posts << "<td><button class='btn btn-danger'>Remove</button></td></tr>"
+                                                      
                             end
                     
                      end
