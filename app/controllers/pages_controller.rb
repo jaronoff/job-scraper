@@ -26,7 +26,9 @@ class PagesController < ApplicationController
     end
   end
   
-  private 
+  
+  
+private 
   
     def scrap_cl
 
@@ -42,45 +44,49 @@ class PagesController < ApplicationController
           
       cities = [
         "sfbay", "losangeles", "athensga", "phoenix", "santabarbara", "denver",
-        "panamacity", "miami", "austin", "bakersfield", "keys", "newyork"
+        "panamacity", "miami", "austin", "bakersfield", "keys", "newyork", "atlanta",
+        "fortmyers", "orangecounty", "sandiego", "fresno", "sacramento", "savannah",
+        "charleston", "lasvegas"
       ]
           
       cities.map do |city|
 
-        search_terms = ["ruby on rails", "rails", "ruby"]
-          
-        search_terms.map do |term|
-          
-          escaped_term = CGI.escape(term)
-          
-          url = "http://#{city}.craigslist.org/search/jjj?query=#{escaped_term}&catAbb=jjj&srchType=A"
-           
-          doc = Nokogiri::HTML(open(url))
-                
-              doc.css(".row").map do |row|
-                  
-                date = row.css(".itemdate").text
-                
-                location = row.css(".itempn").text.to_s[2..-2]    
-                    
-                a_tag = row.css("a")[0]
+           search_terms = ["ruby on rails", "rails", "ruby", "angularjs", "angular js"]
               
-                text = a_tag.text
+           search_terms.map do |term|
               
-                link = a_tag[:href]
-                
-                if date.include? "#{month} #{day}" 
-
-                  @strings << "#{date} #{text} <a href='#{link}'>Link</a> in #{location}"
-   
-                end
+                      escaped_term = CGI.escape(term)
+                      
+                      url = "http://#{city}.craigslist.org/search/jjj?query=#{escaped_term}&catAbb=jjj&srchType=A"
+                       
+                      doc = Nokogiri::HTML(open(url))
+                            
+                      doc.css(".row").map do |row|
+                          
+                            date = row.css(".itemdate").text
+                            
+                            location = row.css(".itempn").text.to_s[2..-2]    
+                                
+                            a_tag = row.css("a")[0]
+                          
+                            text = a_tag.text
+                          
+                            link = a_tag[:href]
+                            
+                            if date.include? "#{month} #{day}"
             
-             end
-          
-          end
-          
-       end
-          
+                              @strings << "#{date} #{text} <a href='#{link}'>Link</a> in #{location}"
+               
+                            end
+                    
+                     end
+              
+           end
+              
       end
+               
 
     end
+
+
+end
