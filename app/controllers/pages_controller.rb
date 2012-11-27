@@ -29,7 +29,7 @@ class PagesController < ApplicationController
   
   
 private 
-  
+
     def scrap_cl
 
       require 'rubygems'
@@ -39,7 +39,7 @@ private
       time = Time.new
       month = I18n.t("date.abbr_month_names")[time.month]
       day = time.day
-      @strings = []
+      @posts = []
       
           
       cities = [
@@ -73,9 +73,9 @@ private
                           
                             link = a_tag[:href]
                             
-                            if date.include? "#{month} #{day}"
+                            if date.include? "Nov 23"
             
-                              @strings << "#{date} #{text} <a href='#{link}'>Link</a> in #{location}"
+                              @posts << "<tr><td>#{date}</td><td>#{text}</td><td><a href='#{link}'>Link</a></td><td>#{location}</td><td><button class='btn btn-success'>Job Added</button></td></tr>"
                
                             end
                     
