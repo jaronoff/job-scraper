@@ -5,16 +5,19 @@
 <div class="span10">
   <table class="table table-striped">
   <thead>
+    <caption><h2>Rails Job Finder For <%= time1= Time.new %></h2></caption>
     <tr>
       <th>Date</th>
       <th>Title</th>
       <th>Link</th>
       <th>Location</th>
-      <th>Email it to me</th>
+      <th>Email?</th>
     </tr>
   </thead>
   <tbody>   
-    <%= @posts.join() %>
+    <% @posts.each do |post| %>
+      <%= raw(post) %>
+    <% end %>
   </tbody>
   <table>
 </div>

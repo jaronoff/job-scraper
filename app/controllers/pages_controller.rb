@@ -73,9 +73,12 @@ private
                           
                             link = a_tag[:href]
                             
-                            if date.include? "Nov 23"
+                            if date.include? "#{month} #{day}"
             
-                              @posts << "<tr><td>#{date}</td><td>#{text}</td><td><a href='#{link}'>Link</a></td><td>#{location}</td><td><button class='btn btn-success'>Job Added</button></td></tr>"
+                              @posts << "<thead><tr><td><h4>#{city}</h4></td></tr></thead><tr><td>#{date}</td><td>#{text}</td><td><a href='#{link}'>Link</a></td><td>#{location}</td><td><button class='btn btn-success'>Job Added</button></td></tr>"
+               
+
+                                                     
                
                             end
                     
