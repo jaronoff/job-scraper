@@ -10,7 +10,7 @@ class PagesController < ApplicationController
 
   def about
     
-    #scrap_cl
+    scrap_cl
     
     respond_to do |format|
       format.html # index.html.erb
@@ -37,6 +37,8 @@ class PagesController < ApplicationController
       time = Time.new
       month = I18n.t("date.abbr_month_names")[time.month]
       day = time.day
+      @strings = []
+      
           
       cities = [
         "sfbay", "losangeles", "athensga", "phoenix", "santabarbara", "denver",
@@ -57,28 +59,26 @@ class PagesController < ApplicationController
                 
               doc.css(".row").map do |row|
                   
-              date = row.css(".itemdate").text
-                  
-              a_tag = row.css("a")[0]
-            
-              text = a_tag.text
-            
-              link = a_tag[:href]
+                date = row.css(".itemdate").text
+                    
+                a_tag = row.css("a")[0]
               
-              @strings = []
-                  
-              if date = "#{month} #{day}"
- 
-                @strings << "#{date} #{text} #{link}"
- 
-              end
-          
+                text = a_tag.text
+              
+                link = a_tag[:href]
+                
+                if date.include? "#{month} #{day}" 
+   
+                  @strings << "#{date} #{text} <a href='#{link}'>Link</a>"
+   
+                end
+            
              end
-          
-            end
           
           end
           
-        end
+       end
+          
+      end
 
     end
