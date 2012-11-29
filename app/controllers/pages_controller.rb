@@ -1,6 +1,4 @@
 class PagesController < ApplicationController
-
-  helper_method :daytime, :scrap_cl
   
   def home
     
@@ -33,20 +31,12 @@ class PagesController < ApplicationController
     end
 
     redirect_to home_path
-    
-
   end
   
   
   
 private 
 
-    def daytime
-      time = Time.new
-      puts month = I18n.t("date.abbr_month_names")[time.month]
-      puts day = time.day
-      
-    end
 
 
     def scrap_cl
