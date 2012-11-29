@@ -3,12 +3,12 @@ class UserMailer < ActionMailer::Base
   
  
   
-  def email_rails_jobs(subject, message, to) 
-    @subject = subject
-    @message = message
+  def email_rails_jobs(posts, to) 
+    
+    @posts = posts
     @to = to
-    unless @message.empty? || @subject.empty? || @to.empty?
-      mail(to: to, subject: subject)
+    unless @posts.empty? || @to.empty?
+      mail(to: to, subject: "Rails Jobs for #{Time.now}")
     end
   end
  

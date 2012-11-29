@@ -1,56 +1,58 @@
-<%= 
+<div class="row-fluid">
 
-  require 'rubygems'
-  require 'nokogiri'
-  require 'open-uri'
-
-
-time = Time.new
-month = I18n.t("date.abbr_month_names")[time.month]
-day = time.day
-"#{month} #{day}"
-
-#United States
-cities = [
-  "sfbay", "losangeles", "athensga", "phoenix", "santabarbara", "denver",
-  "panamacity", "miami", "austin", "bakersfield", "keys", "newyork"
-  ]
-
-cities.map do |city|
-
-  #Search Terms
-  search_terms = ["ruby on rails", "rails", "ruby"]
-
-  search_terms.map do |term|
-
-      escaped_term = CGI.escape(term)
-
-      url = "http://#{city}.craigslist.org/search/jjj?query=#{escaped_term}&catAbb=jjj&srchType=A"
- 
-      doc = Nokogiri::HTML(open(url))
+  <div class="span10 offset1">
+  <h1 class="center text-info">Welcome to Super CraigsList Rails Jobs Finder</h1>
+  </div>
+  
+  <div class="span3 offset1">
+    <h3>Instructions</h3>
+    <ol>
+      <li>
+        Enter your email into the box.
+      </li>
+      <li>
+        Press enter
+      </li>
+      <li>
+        You're done! Check your email for the daily
+        Rails and Angular JS jobs postings.
+      </li>
+    </ol>
+  </div>
+  
+  <br>
+  <br>
+  
+  <div  class="span4 offset1 form-box pull-right">
+    <%= form_tag(action: "mail", method: "get") do %>
+    
+      <%= label_tag(:to, "Your Email") %>
       
-      doc.css(".row").map do |row|
-        
-          date = row.css(".itemdate").text
-        
-          a_tag = row.css("a")[0]
-  
-          text = a_tag.text
-  
-          link = a_tag[:href]
-        
-          if date = "#{month} #{day}"
-            @string = "#{date} #{text} #{link}<br />"
-         
-            raw (@string)
-          end
+      <%= text_field_tag :to, nil, placeholder: "jason@gmail.com" %>
+      
+      <br>
+      
+      <%= submit_tag("Get Ya Jobs", class: "btn btn-success") %>
+    
+    <% end %>
+  </div>
 
-      end
+  <div class="span10 offset1 center alert-box">
+    <% flash.each do |key,value| %>
+      <div class="alert alert-#{key}"><h2><%= value %></h2></div>
+    <% end %>
+  </div> 
 
-  end
+  <footer class="footer">
+    <div class="span2">
+    Built by Jason Tanner
+    </div>
+    <nav>
+      <ul>
+        <li><%= link_to "About", about_path %></li>
+      </ul>
+    </nav>
+  </footer>
 
-end
 
- %>
- 
-<%=  raw (@string) %> 
+</div>

@@ -7,9 +7,7 @@ Clss::Application.routes.draw do
 
   match '/about' => 'pages#about'
 
-  match '/scraper' => 'pages#scraper'
-
-
+  post '/mail' => 'pages#mail'
 
 
 

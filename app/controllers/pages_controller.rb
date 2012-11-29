@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
 
-  helper_method :daytime
+  helper_method :daytime, :scrap_cl
   
   def home
     
@@ -10,22 +10,31 @@ class PagesController < ApplicationController
     end
   end
 
-  def about
-    
-    scrap_cl
-    
+  def about   
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @posts }
     end
+  end  
+
+
+  
+  def mail
+    unless params[:to].empty? 
+      @posts = scrap_cl
+      if UserMailer.email_rails_jobs(@posts, params[:to]).deliver 
+        flash[:success] = "Email Sent!"
+      else
+        flash[:error] = "Email was not sent!"
+      end
+    else
+      flash[:error] = "Please fill in your email!"
+    end
+
+    redirect_to home_path
     
 
-  end
-  
-  def scraper
-    respond_to do |format|
-      format.js 
-    end
   end
   
   

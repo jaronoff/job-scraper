@@ -7,14 +7,28 @@
   </head>
 
   <body>
-    <h1>From: <small> Craigslist Rails Jobs on <%= Time.now %> </small> </h1>
-
-<h3>The message:</h3>
-
-    <p>
-    <%= @message %>
-    </p>
-
+    <div class="span10 offset1">
+      <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>City</th>
+          <th>Date</th>
+          <th>Title</th>
+          <th>Link</th>
+          <th>Location</th>
+          <th>Email?</th>
+        </tr>
+      </thead>
+      <tbody>   
+        
+        <% unless @posts.empty? %>
+          <% @posts.each do |post| %>
+            <%= raw(post) %>
+          <% end %>
+        <% end %>
+      </tbody>
+      <table>
+    </div>
   </body>
 
 </html>

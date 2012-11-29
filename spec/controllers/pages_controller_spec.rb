@@ -2,29 +2,56 @@ require 'spec_helper'
 
 describe PagesController do
 
-  describe "GET 'home'" do
-    it "returns http success" do
-      get 'home'
-      response.should be_success
-      response.should render_template('home')
+    context "for checking home" do
+      before do
+        get :home
+      end
+      
+      it { should respond_with(:success) }
+      it { should render_template(:home) }
+  
     end
-  end
 
-  describe "GET 'about'" do
-    it "returns http success" do
-      get 'about'
-      response.should be_success
-      response.should render_template('about')
-    end
-  end
+    context "for checking about" do
+      before do
+        get :about
+      end
+      
+      it { should respond_with(:success) }
+      it { should render_template(:about) }
   
-  
-  describe "GET scraper" do
-    it 'get scraper is successful' do
-      xhr :get, :scraper
-      response.should be_success
-      response.should render_template('scraper')
-    end
-  end
+    end      
+
+    context "for checking mail w/o parameters" do
+      before do
+        get :mail, to: ""
+      end
+      
+      it { should respond_with(:redirect) }
+      it { should redirect_to(home_path) }
+      it { should set_the_flash.to("Please fill in your email!")}
+ 
+    end    
+
+
+    context "for checking mail with parameters" do
+      before do
+        get :mail, to: "jason@jason.com"
+      end
+      
+      it { should respond_with(:redirect) }
+      it { should redirect_to(home_path) } 
+      it { should set_the_flash.to("Email Sent!")} 
+    end   
+
+    context "for checking mail with parameters" do
+      before do
+        get :mail, to: "jasonjason.com"
+      end
+      
+      it { should respond_with(:redirect) }
+      it { should redirect_to(home_path) } 
+      it { should set_the_flash.to("Email Sent!")} 
+    end  
 
 end
