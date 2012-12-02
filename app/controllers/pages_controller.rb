@@ -16,6 +16,14 @@ class PagesController < ApplicationController
     end
   end  
 
+  def jobs
+    scrap_cl
+    
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @posts }
+    end
+  end
 
   
   def mail
@@ -94,7 +102,7 @@ private
                               
                               @posts << "<td>#{location}</td>"
                               
-                              @posts << "<td><button class='btn btn-danger'>Remove</button></td></tr>"
+                              @posts << "</tr>"
                                                       
                             end
                     

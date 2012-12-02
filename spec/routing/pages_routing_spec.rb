@@ -16,6 +16,10 @@ describe "Page Routing" do
   it "should route pages#mail" do
    expect(post: '/mail').to route_to({ controller: 'pages', action: 'mail' })
   end
+  it "should route pages#jobs" do
+   expect(post: '/jobs').to route_to({ controller: 'pages', action: 'jobs' })
+  end
+ 
  
 end
 

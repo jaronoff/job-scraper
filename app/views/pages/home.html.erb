@@ -3,56 +3,62 @@
   <div class="span10 offset1">
   <h1 class="center text-info">Welcome to Super CraigsList Rails Jobs Finder</h1>
   </div>
+ 
+</div> 
   
-  <div class="span3 offset1">
-    <h3>Instructions</h3>
-    <ol>
-      <li>
-        Enter your email into the box.
-      </li>
-      <li>
-        Press enter
-      </li>
-      <li>
-        You're done! Check your email for the daily
-        Rails and Angular JS jobs postings.
-      </li>
-    </ol>
-  </div>
-  
-  <br>
-  <br>
-  
-  <div  class="span4 offset1 form-box pull-right">
-    <%= form_tag(action: "mail", method: "get") do %>
-    
-      <%= label_tag(:to, "Your Email") %>
-      
-      <%= text_field_tag :to, nil, placeholder: "jason@gmail.com" %>
-      
-      <br>
-      
-      <%= submit_tag("Get Ya Jobs", class: "btn btn-success") %>
-    
-    <% end %>
-  </div>
+<div class="row-fluid">
 
-  <div class="span12 center alert-box">
-    <% flash.each do |key,value| %>
-      <div class="alert alert-#{key}"><h2><%= value %></h2></div>
-    <% end %>
-  </div> 
-
-  <footer class="footer">
-    <div class="span2">
-    Built by Jason Tanner
+    <div class="span3 offset1">
+      
+     <h3>Rails and Angular Jobs</h3>
+     <p>Check out the daily Rails and Angular Job Posts</p>
+     <%= link_to "Daily Posts", jobs_url, class: "btn btn-danger" %>
+     
     </div>
-    <nav>
-      <ul>
-        <li><%= link_to "About", about_path %></li>
-      </ul>
-    </nav>
-  </footer>
+  
+    <div class="span3">
+      <h3 class="center">Email Instructions</h3>
+      <ol>
+        <li>
+          Enter your email into the box.
+        </li>
+        <li>
+          Press enter
+        </li>
+        <li>
+          You're done! Check your email for the daily
+          Rails and Angular JS jobs postings.
+        </li>
+      </ol>
+    </div>
+  
+
+  
+    <div class="span4 form-box pull-right">
+      <%= form_tag(action: "mail", method: "get") do %>
+      
+        <strong>
+          <%= label_tag(:to, "Your Email") %>
+        </strong>
+        
+        <%= text_field_tag :to, nil, placeholder: "jason@gmail.com" %>
+        
+        <br>
+        
+        <%= submit_tag("Email Me Daily Posts", class: "btn btn-success") %>
+             
+      <% end %>
+    </div>
 
 
+    <div class="span12 center alert-box">
+      <% flash.each do |key,value| %>
+        <div class="alert alert-#{key}"><h2><%= value %></h2></div>
+      <% end %>
+    </div> 
+  
 </div>
+
+<hr>
+
+

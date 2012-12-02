@@ -9,7 +9,7 @@ Clss::Application.routes.draw do
 
   post '/mail' => 'pages#mail'
 
-
+  match '/jobs' => 'pages#jobs'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

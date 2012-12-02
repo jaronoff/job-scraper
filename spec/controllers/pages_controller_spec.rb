@@ -22,6 +22,18 @@ describe PagesController do
   
     end      
 
+    context "for checking jobs" do
+      before do
+        get :jobs
+      end
+      
+      it { should respond_with(:success) }
+      it { should render_template(:jobs) }
+  
+    end   
+
+
+
     context "for checking mail w/o parameters" do
       before do
         get :mail, to: ""
