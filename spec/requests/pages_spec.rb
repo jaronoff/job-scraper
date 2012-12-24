@@ -9,11 +9,26 @@ describe "Pages" do
     before :each do
       visit home_path
     end
-        
-    it "" do
-  
-       should have_selector("h1", text: "Welcome to Super CraigsList Rails Jobs Finder")
-  
+    
+    context "has selectors" do
+      it "has date selector" do
+        should have_selector("select")
+      end
+
+      it "has title page" do
+         should have_selector("h1", text: "Welcome to Super CraigsList Rails Jobs Finder")
+      end
+    
+    end
+    
+    context "user got daily posts for certain date" do
+      it "selects dates and is returned a page" do
+        choose("Dec")
+        choose("19")
+        click_button("Daily Posts")
+        should have_selector("td")
+      end
+      
     end
     
     context "user filled everything out correctly" do
@@ -23,7 +38,7 @@ describe "Pages" do
         fill_in "to", with: "jasontanner328@gmail.com"
        
         expect do   
-          click_button "Get Ya Jobs"      
+          click_button "Email Me Daily Posts"      
         end.to change(ActionMailer::Base.deliveries,:size).by(1)
       
       end
@@ -32,7 +47,7 @@ describe "Pages" do
        
         fill_in "to", with: "jasontanner328@gmail.com"
        
-        click_button "Get Ya Jobs"      
+        click_button "Email Me Daily Posts"      
         
         should have_selector("div", text: "Email Sent!") 
       
@@ -47,7 +62,7 @@ describe "Pages" do
         fill_in "to", with: ""
        
         expect do   
-          click_button "Get Ya Jobs"      
+          click_button "Email Me Daily Posts"      
           should have_selector("div", text: "Please fill in your email!") 
         end.to change(ActionMailer::Base.deliveries,:size).by(0)
       
@@ -57,7 +72,7 @@ describe "Pages" do
        
         fill_in "to", with: ""
   
-        click_button "Get Ya Jobs"       
+        click_button "Email Me Daily Posts"       
         
         should have_selector("div", text: "Please fill in your email!")
       
