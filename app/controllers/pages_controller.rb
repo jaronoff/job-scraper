@@ -61,16 +61,16 @@ private
       @time = month.to_s
       
       cities = [
-        "auburn", "bham",
+        "auburn", "bham", "tuscaloosa", 
         "sfbay", "losangeles", "athensga", "phoenix", "santabarbara", "denver",
-       "panamacity", "miami", "austin", "bakersfield", "keys", "newyork", "atlanta",
-      "fortmyers", "orangecounty", "sandiego", "fresno", "sacramento", "savannah",
-      "charleston", "lasvegas"
+        "panamacity", "miami", "austin", "bakersfield", "keys", "newyork", "atlanta",
+        "fortmyers", "orangecounty", "sandiego", "fresno", "sacramento", "savannah",
+        "charleston", "lasvegas"
       ]
           
       cities.map do |city|
 
-        search_terms = ["ruby on rails", "rails", "ruby", "angularjs", "angular js"]
+        search_terms = ["jquery", "rails", "angular"]
               
         search_terms.map do |term|
               
