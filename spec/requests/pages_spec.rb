@@ -10,26 +10,6 @@ describe "Pages" do
       visit home_path
     end
     
-    context "has selectors" do
-      it "has date selector" do
-        should have_selector("select")
-      end
-
-      it "has title page" do
-         should have_selector("h1", text: "Welcome to Super CraigsList Rails Jobs Finder")
-      end
-    
-    end
-    
-    context "user got daily posts for certain date" do
-      it "selects dates and is returned a page" do
-        choose("Dec")
-        choose("19")
-        click_button("Daily Posts")
-        should have_selector("td")
-      end
-      
-    end
     
     context "user filled everything out correctly" do
     

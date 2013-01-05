@@ -15,13 +15,14 @@ class PagesController < ApplicationController
   end  
 
   def jobs
-    month = params[:month]
-    day = params[:day]
-    scrap_cl(month, day)
-    
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @posts }
+    if scrap_cl().empty?
+      flash[:error] = "Nothing found this month!"
+      redirect_to home_path
+    else
+      respond_to do |format|
+        format.html # index.html.erb
+        format.json { render json: @posts }
+      end
     end
   end
 
@@ -47,7 +48,7 @@ private
 
 
 
-    def scrap_cl(month, day)
+    def scrap_cl()
 
 
       require 'nokogiri'
@@ -55,18 +56,17 @@ private
                  
       time = Time.new - 10000
       month = I18n.t("date.abbr_month_names")[time.month]
-      day = time.day
+
       @posts = []
-      @time = month + day
+      @time = month.to_s
       
       cities = [
-        "sfbay", "losangeles"
+        "auburn", "bham",
+        "sfbay", "losangeles", "athensga", "phoenix", "santabarbara", "denver",
+       "panamacity", "miami", "austin", "bakersfield", "keys", "newyork", "atlanta",
+      "fortmyers", "orangecounty", "sandiego", "fresno", "sacramento", "savannah",
+      "charleston", "lasvegas"
       ]
-      
-      #, "athensga", "phoenix", "santabarbara", "denver",
-       # "panamacity", "miami", "austin", "bakersfield", "keys", "newyork", "atlanta",
-        #"fortmyers", "orangecounty", "sandiego", "fresno", "sacramento", "savannah",
-        #"charleston", "lasvegas"
           
       cities.map do |city|
 
@@ -76,7 +76,7 @@ private
               
           escaped_term = CGI.escape(term)
                    
-          url = "http://#{city}.craigslist.org/search/jjj?query=#{escaped_term}&catAbb=jjj&srchType=A"
+          url = "http://#{city}.craigslist.org/search/jjj?query=#{escaped_term}&catAbb=jjj&srchType=A&addOne=telecommuting"
                         
           doc = Nokogiri::HTML(open(url))
                             
@@ -103,9 +103,7 @@ private
               @posts << "<td>#{location}</td>"
                               
               @posts << "</tr>"
-              
-
-                                                      
+                                                     
             end
                     
           end

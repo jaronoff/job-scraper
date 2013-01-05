@@ -33,6 +33,28 @@ describe PagesController do
     end   
 
 
+    context "for checking jobs" do
+      before do
+        get :jobs
+      end
+      
+      it { should respond_with(:success) }
+      it { should render_template(:jobs) }
+  
+    end   
+    
+    context "jobs redirects to homepage when nothing returned from crawlers" do
+      before do
+        PagesController.any_instance.stub(:scrap_cl).and_return("")
+        get :jobs
+      end
+    
+      it { should respond_with(:redirect) }
+      it { should redirect_to(home_path) } 
+      it { should set_the_flash.to("Nothing found this month!")}      
+      
+    end
+
 
     context "for checking mail w/o parameters" do
       before do

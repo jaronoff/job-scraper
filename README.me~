@@ -5,5 +5,5 @@ This is a screen scraper that collects applications for telecommuting programmer
 
 TODO  
 1) Fix the crawler system to grab the correct date. It is currently based on UTC time and is broken.  
-2) When no crawlers are returned, a page should returning saying that no results were found.  
+2) When no crawlers are returned, a page should returning saying that no results were found.
 

@@ -9,13 +9,8 @@
         </tr>
       </thead>
       <tbody>   
-        
-        <% unless @posts.empty? %>
-          <% @posts.each do |post| %>
-            <%= raw(post) %>
-          <% end %>
-        <% else %>
-          <p>No results found!</p>
+        <% @posts.each do |post| %>
+          <%= raw(post) %>
         <% end %>
       </tbody>
       <table>
