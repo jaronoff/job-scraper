@@ -70,44 +70,48 @@ private
           
       cities.map do |city|
 
-        search_terms = ["jquery", "rails", "angular"]
+        search_terms = ["rails"]
               
         search_terms.map do |term|
               
           escaped_term = CGI.escape(term)
                    
-          url = "http://#{city}.craigslist.org/search/jjj?query=#{escaped_term}&catAbb=jjj&srchType=A&addOne=telecommuting"
+          urls = ["http://#{city}.craigslist.org/search/jjj?query=#{escaped_term}&catAbb=jjj&srchType=A&addOne=telecommuting", "http://#{city}.craigslist.org/search/web?query=#{escaped_term}&catAbb=web&srchType=A&zoomToPosting="]
                         
-          doc = Nokogiri::HTML(open(url))
-                            
-          doc.css(".row").map do |row|
-                          
-            date = row.css(".itemdate").text
-                            
-            location = row.css(".itempn").text.to_s[2..-2]    
-                                
-            a_tag = row.css("a")[0]
-                          
-            text = a_tag.text
-                          
-            link = a_tag[:href]
-                            
-            if date.include? @time
-            
-              @posts << "<tr><td>#{city.capitalize}</td>"
-                              
-              @posts << "<td>#{text}</td>"
-                              
-              @posts << "<td><a href='#{link}'>Link</a></td>"
-                              
-              @posts << "<td>#{location}</td>"
-                              
-              @posts << "</tr>"
-                                                     
+          urls.map do |url|
+
+            doc = Nokogiri::HTML(open(url))
+
+            doc.css(".row").map do |row|
+
+              date = row.css(".itemdate").text
+
+              location = row.css(".itempn").text.to_s[2..-2]
+
+              a_tag = row.css("a")[0]
+
+              text = a_tag.text
+
+              link = a_tag[:href]
+
+              if date.include? @time
+
+                @posts << "<tr><td>#{city.capitalize}</td>"
+
+                @posts << "<td>#{text}</td>"
+
+                @posts << "<td><a href='#{link}'>Link</a></td>"
+
+                @posts << "<td>#{location}</td>"
+
+                @posts << "</tr>"
+
+              end
+
             end
-                    
-          end
               
+          end
+
         end
               
       end
