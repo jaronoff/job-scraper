@@ -70,14 +70,16 @@ private
           
       cities.map do |city|
 
-        search_terms = ["rails"]
+        search_terms = ["ruby"]
               
         search_terms.map do |term|
               
           escaped_term = CGI.escape(term)
                    
-          urls = ["http://#{city}.craigslist.org/search/jjj?query=#{escaped_term}&catAbb=jjj&srchType=A&addOne=telecommuting", "http://#{city}.craigslist.org/search/web?query=#{escaped_term}&catAbb=web&srchType=A&zoomToPosting="]
-                        
+          urls = ["http://#{city}.craigslist.org/search/jjj?query=#{escaped_term}&catAbb=jjj&srchType=A&addOne=telecommuting"]
+
+          #, "http://#{city}.craigslist.org/search/web?query=#{escaped_term}&catAbb=web&srchType=A&zoomToPosting="
+
           urls.map do |url|
 
             doc = Nokogiri::HTML(open(url))
