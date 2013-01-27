@@ -48,7 +48,6 @@
     <orderEntry type="library" scope="PROVIDED" name="guard (v1.6.1, RVM: ruby-1.9.3-p286) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="guard-rspec (v1.2.1, RVM: ruby-1.9.3-p286) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="guard-spork (v1.2.0, RVM: ruby-1.9.3-p286) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="haml (v3.1.7, RVM: ruby-1.9.3-p286) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="hike (v1.2.1, RVM: ruby-1.9.3-p286) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="i18n (v0.6.1, RVM: ruby-1.9.3-p286) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="journey (v1.0.4, RVM: ruby-1.9.3-p286) [gem]" level="application" />
@@ -65,7 +64,7 @@
     <orderEntry type="library" scope="PROVIDED" name="mocha (v0.10.5, RVM: ruby-1.9.3-p286) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="multi_json (v1.5.0, RVM: ruby-1.9.3-p286) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="nokogiri (v1.5.6, RVM: ruby-1.9.3-p286) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="pg (v0.12.2, RVM: ruby-1.9.3-p286) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="pg (v0.14.1, RVM: ruby-1.9.3-p286) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="polyglot (v0.3.3, RVM: ruby-1.9.3-p286) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="pry (v0.9.10, RVM: ruby-1.9.3-p286) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rack (v1.4.4, RVM: ruby-1.9.3-p286) [gem]" level="application" />
