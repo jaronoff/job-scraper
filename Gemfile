@@ -1,9 +1,13 @@
 source 'https://rubygems.org'
 
+ruby '2.0.0'
+
 gem 'rails', '4.0.2'
 gem 'jquery-rails'
 
-gem "pg", "~> 0.17.1"
+gem "sqlite3", "~> 1.3.8"
+
+gem 'unicorn'
 
 group :development, :test do
   gem 'rspec-rails', '2.11.0'
@@ -17,9 +21,7 @@ gem "coffee-rails", "~> 4.0.1"
 gem "uglifier", "~> 2.4.0"
 gem "bootstrap-sass-rails", "~> 3.0.3.0"
 gem "font-awesome-rails", "~> 4.0.3.0"
-
-
-
+gem "angularjs-rails", "~> 1.2.7"
 
 group :test do
   gem "shoulda-matchers"

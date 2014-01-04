@@ -3,6 +3,8 @@ class Scraper
     require 'nokogiri'
     require 'open-uri'
 
+    jobs = []
+
     time = Time.new - 10000
 
     month = I18n.t("date.abbr_month_names")[time.month]
@@ -29,7 +31,6 @@ class Scraper
         #, "http://#{city}.craigslist.org/search/web?query=#{escaped_term}&catAbb=web&srchType=A&zoomToPosting="
 
         urls.map do |url|
-
           doc = Nokogiri::HTML(open(url))
 
           doc.css(".row").map do |row|
@@ -44,24 +45,9 @@ class Scraper
 
             link = a_tag[:href]
 
-            if date.include? month
-
-              posts << "<tr><td>#{city.capitalize}</td>"
-
-              posts << "<td>#{text}</td>"
-
-              posts << "<td><a href='#{link}'>Link</a></td>"
-
-              posts << "<td>#{location}</td>"
-
-              posts << "</tr>"
-
-            end
-
+            jobs << Job.new(city.capitalize, text, link, location) if date.include? month
           end
-
         end
-
       end
     end
   end

@@ -1,0 +1,12 @@
+<div class="container" ng-controller="JobsCtrl">
+  <div class="col-md-8 col-md-offset-2">
+    <h1>Craigslist Screen Scraper</h1>
+    <input type="text" ng-model="search_term">
+    <button ng-click="getJobs(search_term)" class='btn btn-submit'>Search</button>
+
+    <div>{{jobs}}</div>
+    <div>{{working}}</div>
+
+  </div>
+
+</div>
