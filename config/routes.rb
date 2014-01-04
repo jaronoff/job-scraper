@@ -1,15 +1,5 @@
 Clss::Application.routes.draw do
-  
   root :to => 'pages#home'
-
-    
-  match '/home' => 'pages#home'
-
-  match '/about' => 'pages#about'
-
-  post '/mail' => 'pages#mail'
-
-  match '/jobs' => 'pages#jobs'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

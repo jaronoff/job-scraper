@@ -1,9 +1,9 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.11'
+gem 'rails', '4.0.2'
 gem 'jquery-rails'
 
-gem "pg", "~> 0.14.1"
+gem "pg", "~> 0.17.1"
 
 group :development, :test do
   gem 'rspec-rails', '2.11.0'
@@ -12,14 +12,12 @@ group :development, :test do
   gem 'spork', '0.9.2'
 end
 
+gem "sass-rails", "~> 4.0.1"
+gem "coffee-rails", "~> 4.0.1"
+gem "uglifier", "~> 2.4.0"
+gem "bootstrap-sass-rails", "~> 3.0.3.0"
+gem "font-awesome-rails", "~> 4.0.3.0"
 
-group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
-  gem 'uglifier', '>= 1.0.3'
-  gem "bootstrap-sass-rails", "~> 2.2.1.1"
-  gem "font-awesome-rails", "~> 0.4.1"
-end
 
 
 
