@@ -2,7 +2,7 @@ Clss::Application.routes.draw do
   get "jobs/search"
   root :to => 'pages#home'
 
-  get '/jobs/:search_term', to: 'jobs#search'
+  get 'jobs/:search_term', to: 'jobs#search', format: 'json'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

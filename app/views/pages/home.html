@@ -1,12 +1,44 @@
 <div class="container" ng-controller="JobsCtrl">
   <div class="col-md-8 col-md-offset-2">
-    <h1>Craigslist Screen Scraper</h1>
-    <input type="text" ng-model="search_term">
-    <button ng-click="getJobs(search_term)" class='btn btn-submit'>Search</button>
+    <h1 class="text-center">Craigslist Screen Scraper</h1>
 
-    <div>{{jobs}}</div>
-    <div>{{working}}</div>
+    <form class="row" role="form">
+      <div class="col-md-11 col-search-bar">
+        <input class="form-control" placeholder="Search" id="search-bar" type="text" ng-model="search_term">
+      </div>
+      <div class="col-md-1 col-search-btn">
+        <button ng-click="getJobs(search_term)" class='btn btn-success'>Search</button>
+      </div>
+    </form>
 
+    <div ng-show="searched">
+      <hr>
+
+      <br>
+
+
+      Filter Job results by name: <input type="checkbox"  ng-model="showJobFilter">
+
+    </div>
+
+    <br>
+    <br>
+
+    <input class="form-control" placeholder="Seeking Rails.." ng-show="showJobFilter" type="text" ng-model="jobFilter">
+
+    <br>
   </div>
 
+  <div class="clearfix"></div>
+
+  <div class="col-md-10 col-md-offset-1">
+    <table class="table">
+      <tr ng-repeat="job in jobs | filter:jobFilter">
+        <td jobdate></td>
+        <td jobtitle></td>
+        <td joblocation></td>
+        <td jobdelete></td>
+      </tr>
+    </table>
+  </div>
 </div>

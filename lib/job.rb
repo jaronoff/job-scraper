@@ -1,8 +1,9 @@
 class Job
-  def initialize(city, title, link, location)
+  def initialize(city, title, url, location, date)
     @city = city
     @title = title
-    @link = link
+    @url = url
     @location = location
+    @date = date
   end
 end
