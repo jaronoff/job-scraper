@@ -1,4 +1,4 @@
-angular.module("Clss", ['ui', 'ui.filters'])
+angular.module("Clss", [])
 
 .directive("jobtitle", function() {
   return {
@@ -42,29 +42,32 @@ angular.module("Clss", ['ui', 'ui.filters'])
 
   $scope.alert ="";
 
-  $scope.showJobFiler = false;
+  $scope.showJobFilter = false;
 
   $scope.searched = false;
 
+  $scope.loading = false;
+
+
   $scope.getJobs = function(search_term) {
     if (typeof search_term !== 'undefined') {
+      $scope.loading = true;
+
       $http.get('/jobs/' + encodeURIComponent(search_term)).
       success(function(data, status) {
-
-        console.log("started");
         $scope.jobs = data
-        console.log("hello");
-
-        $scope.showJobFiler = false;
 
         $scope.searched = true;
+
+        $scope.loading = true;
 
       }).
       error(function(data, status) {
         console.log("Something went wrong " + data);
-        console.log("Something went wrong " + status);
 
+        console.log("Something went wrong " + status);
       });
     }
   }
 });
+
