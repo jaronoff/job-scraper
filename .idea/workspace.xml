@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4d2fa39f-c67a-4dc0-8463-c1ff3a47fce6" name="Default" comment="" />
+    <list default="true" id="4d2fa39f-c67a-4dc0-8463-c1ff3a47fce6" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile.lock" afterPath="$PROJECT_DIR$/Gemfile.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
+    </list>
     <ignored path="clss.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -40,7 +44,7 @@
       <file leaf-file-name="Gemfile" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Gemfile">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="7" selection-start="93" selection-end="93" vertical-scroll-proportion="0.14088051">
+            <state line="7" column="28" selection-start="114" selection-end="114" vertical-scroll-proportion="0.14088051">
               <folding />
             </state>
           </provider>
@@ -784,7 +788,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Gemfile">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="7" selection-start="93" selection-end="93" vertical-scroll-proportion="0.14088051">
+        <state line="7" column="28" selection-start="114" selection-end="114" vertical-scroll-proportion="0.14088051">
           <folding />
         </state>
       </provider>

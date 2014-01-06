@@ -5,7 +5,7 @@ ruby '2.0.0'
 gem 'rails', '4.0.2'
 gem 'jquery-rails'
 
-gem 'pg'
+gem 'pg', group: :production
 
 gem 'unicorn'
 
@@ -14,6 +14,7 @@ group :development, :test do
   gem 'guard-rspec', '1.2.1'
   gem 'guard-spork', '1.2.0'
   gem 'spork', '0.9.2'
+  gem "sqlite3"
 end
 
 gem "sass-rails", "~> 4.0.1"
