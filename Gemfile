@@ -5,7 +5,7 @@ ruby '2.0.0'
 gem 'rails', '4.0.2'
 gem 'jquery-rails'
 
-gem "sqlite3", "~> 1.3.8"
+gem 'pg'
 
 gem 'unicorn'
 
