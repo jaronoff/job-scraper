@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4d2fa39f-c67a-4dc0-8463-c1ff3a47fce6" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/jobs_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/jobs_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/pages/home.html" afterPath="$PROJECT_DIR$/app/views/pages/home.html" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/README.me" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
     </list>
     <ignored path="clss.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -107,7 +108,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/config/unicorn.rb" />
         <option value="$PROJECT_DIR$/Procfile" />
         <option value="$PROJECT_DIR$/db/database.yml" />
         <option value="$PROJECT_DIR$/config/initializers/load_lib.rb" />
@@ -123,6 +123,7 @@
         <option value="$PROJECT_DIR$/app/assets/javascripts/master.js" />
         <option value="$PROJECT_DIR$/app/controllers/jobs_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/pages/home.html" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -602,11 +603,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/config/unicorn.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="3" selection-start="601" selection-end="601" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/database.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="21" column="15" selection-start="537" selection-end="537" vertical-scroll-proportion="0.0" />
@@ -697,6 +693,13 @@
     <entry file="file://$PROJECT_DIR$/app/views/pages/home.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="43" column="0" selection-start="1152" selection-end="1152" vertical-scroll-proportion="-25.56">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="0" selection-start="136" selection-end="136" vertical-scroll-proportion="0.12419146">
           <folding />
         </state>
       </provider>
