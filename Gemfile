@@ -13,6 +13,8 @@ gem 'rails_12factor'
 
 gem "nokogiri", "~> 1.6.1"
 
+gem "rubysl-open-uri", "~> 2.0.0"
+
 
 group :development, :test do
   gem 'rspec-rails', '2.11.0'
