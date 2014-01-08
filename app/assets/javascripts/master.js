@@ -53,7 +53,7 @@ angular.module("Clss", [])
     if (typeof search_term !== 'undefined') {
       $scope.loading = true;
 
-      $http.get('/jobs/' + encodeURIComponent(search_term)).
+      $http.get('/jobs/' + encodeURI(search_term["$"])).
       success(function(data, status) {
         $scope.jobs = data
 
