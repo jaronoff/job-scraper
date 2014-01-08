@@ -11,6 +11,9 @@ gem 'unicorn'
 
 gem 'rails_12factor'
 
+gem "nokogiri", "~> 1.6.1"
+
+
 group :development, :test do
   gem 'rspec-rails', '2.11.0'
   gem 'guard-rspec', '1.2.1'

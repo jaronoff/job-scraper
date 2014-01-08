@@ -213,6 +213,7 @@ DEPENDENCIES
   guard-spork (= 1.2.0)
   jquery-rails
   libnotify (= 0.5.9)
+  nokogiri (~> 1.6.1)
   pg
   rails (= 4.0.2)
   rails_12factor
