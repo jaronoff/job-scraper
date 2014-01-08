@@ -1,9 +1,5 @@
 class Scraper
   def self.cl(search_term)
-    require 'nokogiri'
-
-    require 'open-uri'
-
     jobs = []
 
     time = Time.new - 10000
@@ -30,11 +26,9 @@ class Scraper
         ]
 
         urls.each do |url|
-
           doc = Nokogiri::HTML(open(url, 'User-Agent' => 'ruby'))
 
           doc.css(".row").map do |row|
-
             date = row.css(".date").text
 
             location = row.css(".pnr").text.to_s[2..-2]
@@ -60,14 +54,11 @@ class Scraper
 
               if split_link.count > 2
                 job_url = "http://#{city}.craigslist.org" + "/" + split_link[-2..-1].join("/")
-
               else
                 job_url = "http://#{city}.craigslist.org" + "/" + split_link.join("/")
               end
 
               jobs << Job.new(city, job_title, job_url, job_location, date) if job_title.present?
-
-
             end
           end
         end
