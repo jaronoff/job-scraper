@@ -26,7 +26,7 @@ class Scraper
         ]
 
         urls.each do |url|
-          doc = Nokogiri::HTML(open(url, 'User-Agent' => 'ruby'))
+          doc = Nokogiri::HTML(open(url))
 
           doc.css(".row").map do |row|
             date = row.css(".date").text
