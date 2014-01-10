@@ -21,6 +21,13 @@ angular.module("Clss", [])
   }
 })
 
+.directive("jobtype", function() {
+  return {
+    restrict: "A",
+    template: "<td>{{job.type}}</td>"
+  }
+})
+
 .directive("jobdelete", function() {
     return {
       restrict: "A",
@@ -51,6 +58,7 @@ angular.module("Clss", [])
 
   $scope.getJobs = function(search_term) {
     if (typeof search_term !== 'undefined') {
+
       $scope.loading = true;
 
       $http.get('/jobs/' + encodeURI(search_term["$"])).
@@ -59,13 +67,10 @@ angular.module("Clss", [])
 
         $scope.searched = true;
 
-        $scope.loading = true;
-
+        $scope.loading = false;
       }).
       error(function(data, status) {
         console.log("Something went wrong " + data);
-
-        console.log("Something went wrong " + status);
       });
     }
   }

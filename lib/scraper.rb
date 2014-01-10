@@ -1,4 +1,7 @@
 class Scraper
+  require 'nokogiri'
+  require 'open-uri'
+
   def self.cl(search_term)
     jobs = []
 
@@ -8,13 +11,18 @@ class Scraper
 
     current_month = month.to_s
 
-    cities = ["auburn", "bham", "tuscaloosa", "sfbay", "losangeles", "athensga",
-              "phoenix", "santabarbara", "denver", "panamacity", "miami", "austin",
-              "bakersfield", "keys", "newyork", "atlanta", "fortmyers", "orangecounty",
-              "sandiego", "fresno", "sacramento", "savannah", "charleston", "lasvegas"
-    ]
+    cities = {}
 
-    cities.each do |city|
+    Nokogiri::HTML(open("http://craigslist.org")).css(".box").each do |box|
+      box.css("a").each do |a|
+        if a["href"][-3..-1] == "org"
+
+          cities[a.text] = a["href"].split(".").first.split('/').last
+        end
+      end
+    end
+
+    cities.each do |proper_city_name, city|
       search_terms = search_term.split(" ") << search_term
 
       search_terms.map do |term|
@@ -35,9 +43,10 @@ class Scraper
 
             a_tag = row.css("a")[1]
 
-            text = row.css("a")[1].text
+            text = a_tag.text
 
             link = a_tag[:href]
+
 
             if date.include? current_month
               post_date = date.split(" ")
@@ -46,19 +55,21 @@ class Scraper
 
               job_date = DateTime.new(DateTime.now.year, month.to_i, post_date[1].to_i)
 
-              job_location = city.capitalize
-
               job_title = text
 
-              split_link = link.split("/")
 
-              if split_link.count > 2
-                job_url = "http://#{city}.craigslist.org" + "/" + split_link[-2..-1].join("/")
-              else
-                job_url = "http://#{city}.craigslist.org" + "/" + split_link.join("/")
+              url[-1] == "g" ? type = "Telecommute" : type = "Gig"
+
+
+              if job_title.present?
+                selected = jobs.select{ |job| job.url == link }
+
+                if selected.blank?
+                  puts "found"
+
+                  jobs << Job.new(city, job_title, link, proper_city_name.capitalize, date, type)
+                end
               end
-
-              jobs << Job.new(city, job_title, job_url, job_location, date) if job_title.present?
             end
           end
         end
