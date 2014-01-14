@@ -55,10 +55,8 @@ angular.module("Clss", [])
 
   $scope.loading = false;
 
-
   $scope.getJobs = function(search_term) {
     if (typeof search_term !== 'undefined') {
-
       $scope.loading = true;
 
       $http.get('/jobs/' + encodeURI(search_term["$"])).
@@ -67,7 +65,10 @@ angular.module("Clss", [])
 
         $scope.searched = true;
 
+
         $scope.loading = false;
+
+        alert($scope.loading);
       }).
       error(function(data, status) {
         console.log("Something went wrong " + data);
