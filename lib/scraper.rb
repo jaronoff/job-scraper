@@ -5,6 +5,8 @@ class Scraper
   def self.cl(search_term)
     jobs = []
 
+    # Craigslist
+    # ==========
     time = Time.new - 10000
 
     month = I18n.t("date.abbr_month_names")[time.month]
@@ -12,6 +14,8 @@ class Scraper
     current_month = month.to_s
 
     cities = {}
+
+    urls = []
 
     Nokogiri::HTML(open("http://craigslist.org")).css(".box").each do |box|
       box.css("a").each do |a|
@@ -57,21 +61,39 @@ class Scraper
 
               job_title = text
 
-
               url[-1] == "g" ? type = "Telecommute" : type = "Gig"
-
 
               if job_title.present?
                 selected = jobs.select{ |job| job.url == link }
 
                 if selected.blank?
-                  puts "found"
-
                   jobs << Job.new(city, job_title, link, proper_city_name.capitalize, date, type)
                 end
               end
             end
           end
+        end
+      end
+    end
+
+    # We Work Remotely
+    # =================
+    escaped_term = CGI.escape("rails")
+
+    doc = Nokogiri::HTML(open("https://weworkremotely.com/jobs/search?term=#{escaped_term}"))
+
+    doc.css('.jobs').each do |jobs_box|
+      jobs_box.css("li").each do |job|
+        if job.css("a")[0][:class] != "view-all"
+          company = job.css(".company").text
+
+          title = job.css(".title").text
+
+          date = job.css(".date").text
+
+          link = "https://weworkremotely.com" + job.css("a")[0][:href]
+
+          jobs << Job.new("Your Home", title, link, "Your Home", date, "Telecommute")
         end
       end
     end
