@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4d2fa39f-c67a-4dc0-8463-c1ff3a47fce6" name="Default" comment="" />
+    <list default="true" id="4d2fa39f-c67a-4dc0-8463-c1ff3a47fce6" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/master.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/master.js" />
+    </list>
     <ignored path="clss.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -31,7 +33,7 @@
       <file leaf-file-name="master.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/assets/javascripts/master.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="70" column="30" selection-start="1345" selection-end="1345" vertical-scroll-proportion="0.78224456">
+            <state line="66" column="0" selection-start="1280" selection-end="1280" vertical-scroll-proportion="0.7319933">
               <folding />
             </state>
           </provider>
@@ -727,7 +729,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/javascripts/master.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="70" column="30" selection-start="1345" selection-end="1345" vertical-scroll-proportion="0.78224456">
+        <state line="66" column="0" selection-start="1280" selection-end="1280" vertical-scroll-proportion="0.7319933">
           <folding />
         </state>
       </provider>

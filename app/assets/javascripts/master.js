@@ -65,10 +65,7 @@ angular.module("Clss", [])
 
         $scope.searched = true;
 
-
         $scope.loading = false;
-
-        alert($scope.loading);
       }).
       error(function(data, status) {
         console.log("Something went wrong " + data);
