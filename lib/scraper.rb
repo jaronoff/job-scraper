@@ -17,7 +17,7 @@ class Scraper
 
     urls = []
 
-    Nokogiri::HTML(open("http://craigslist.org")).css(".box").each do |box|
+    Nokogiri::HTML(open("http://craigslist.org", 'User-Agent' => 'ruby')).css(".box").each do |box|
       box.css("a").each do |a|
         if a["href"][-3..-1] == "org"
 
@@ -38,7 +38,7 @@ class Scraper
         ]
 
         urls.each do |url|
-          doc = Nokogiri::HTML(open(url))
+          doc = Nokogiri::HTML(open(url, 'User-Agent' => 'ruby'))
 
           doc.css(".row").map do |row|
             date = row.css(".date").text
@@ -80,7 +80,7 @@ class Scraper
     # =================
     escaped_term = CGI.escape("rails")
 
-    doc = Nokogiri::HTML(open("https://weworkremotely.com/jobs/search?term=#{escaped_term}"))
+    doc = Nokogiri::HTML(open("https://weworkremotely.com/jobs/search?term=#{escaped_term}", 'User-Agent' => 'ruby'))
 
     doc.css('.jobs').each do |jobs_box|
       jobs_box.css("li").each do |job|
