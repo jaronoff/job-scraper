@@ -42,6 +42,8 @@ class Scraper
           doc = Nokogiri::HTML(open(url, 'User-Agent' => 'ruby'))
 
           doc.css(".row").map do |row|
+            puts "well it works"
+
             date = row.css(".date").text
 
             location = row.css(".pnr").text.to_s[2..-2]
