@@ -7,6 +7,7 @@ class Scraper
 
     # Craigslist
     # ==========
+=begin
     time = Time.new - 10000
 
     month = I18n.t("date.abbr_month_names")[time.month]
@@ -78,7 +79,7 @@ class Scraper
         end
       end
     end
-
+=end
     # We Work Remotely
     # =================
     escaped_term = CGI.escape("rails")
