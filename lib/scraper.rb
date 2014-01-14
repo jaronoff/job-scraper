@@ -37,7 +37,7 @@ class Scraper
                 "http://#{city}.craigslist.org/search/cpg?query=#{escaped_term}&zoomToPosting=&addThree="
         ]
 
-        urls = []
+
         urls.each do |url|
           doc = Nokogiri::HTML(open(url, 'User-Agent' => 'ruby'))
 
