@@ -1,38 +1,40 @@
-<div class="container" ng-controller="JobsCtrl">
-  <div class="col-md-8 col-md-offset-2">
-    <h1 class="text-center">Craigslist Programming Screen Scraper</h1>
+<div ng-controller="JobsCtrl">
+  <div class="container">
+    <div class="col-md-8 col-md-offset-2">
+      <h1 class="text-center">Craigslist Programming Screen Scraper</h1>
 
-    <form class="row" role="form">
-      <div class="col-md-11 col-search-bar">
-        <input class="form-control" placeholder="Search" id="search-bar" type="text" ng-model="search_term.$">
-      </div>
-      <div class="col-md-1 col-search-btn">
-        <button ng-click="getJobs(search_term)" class='btn btn-success'>Search</button>
-      </div>
-    </form>
+      <form class="row" role="form">
+        <div class="col-md-11 col-search-bar">
+          <input class="form-control" placeholder="Search" id="search-bar" type="text" ng-model="search_term.$">
+        </div>
+        <div class="col-md-1 col-search-btn">
+          <button ng-click="getJobs(search_term)" class='btn btn-success'>Search</button>
+        </div>
+      </form>
 
-    <div ng-show="loading">
-      <h2 class="text-center">Loading... It can take awhile... like 20 mins long...</h2>
-      <div class="progress progress-striped active">
-        <div class="progress-bar"  role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+      <div ng-show="loading">
+        <h2 class="text-center">Loading... It can take awhile... like 20 mins long...</h2>
+        <div class="progress progress-striped active">
+          <div class="progress-bar"  role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+        </div>
       </div>
+
+      <div ng-show="searched">
+        <hr>
+
+        <br>
+
+        Filter Job results by name: <input type="checkbox"  ng-model="showJobFilter">
+
+        <br>
+
+        <br>
+
+        <input class="form-control" placeholder="Seeking Rails.." ng-show="showJobFilter" type="text" ng-model="jobFilter">
+      </div>
+
+      <br>
     </div>
-
-    <div ng-show="searched">
-      <hr>
-
-      <br>
-
-      Filter Job results by name: <input type="checkbox"  ng-model="showJobFilter">
-
-      <br>
-
-      <br>
-
-      <input class="form-control" placeholder="Seeking Rails.." ng-show="showJobFilter" type="text" ng-model="jobFilter">
-    </div>
-
-    <br>
   </div>
 
   <div class="clearfix"></div>

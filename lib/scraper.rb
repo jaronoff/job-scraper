@@ -7,7 +7,6 @@ class Scraper
 
     # Craigslist
     # ==========
-
     time = Time.new - 10000
 
     month = I18n.t("date.abbr_month_names")[time.month]
