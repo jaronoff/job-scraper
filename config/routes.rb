@@ -1,4 +1,4 @@
-Clss::Application.routes.draw do
+JobScraper::Application.routes.draw do
   get "jobs/search"
   root :to => 'pages#home'
 

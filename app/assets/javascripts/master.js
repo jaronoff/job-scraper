@@ -1,4 +1,4 @@
-angular.module("Clss", [])
+angular.module("JobScraper", [])
 
 .directive("jobtitle", function() {
   return {

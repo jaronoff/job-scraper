@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Clss::Application.load_tasks
+JobScraper::Application.load_tasks
