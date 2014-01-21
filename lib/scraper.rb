@@ -82,7 +82,7 @@ class Scraper
 =end
     # We Work Remotely
     # =================
-    escaped_term = CGI.escape("rails")
+    escaped_term = CGI.escape(search_term)
 
     doc = Nokogiri::HTML(open("https://weworkremotely.com/jobs/search?term=#{escaped_term}", 'User-Agent' => 'ruby'))
 
@@ -98,6 +98,30 @@ class Scraper
           link = "https://weworkremotely.com" + job.css("a")[0][:href]
 
           jobs << Job.new("Your Home", title, link, "Your Home", date, "Telecommute")
+        end
+      end
+    end
+
+    # Dice.com
+    # =========
+    escaped_term = CGI.escape(search_term)
+
+    doc = Nokogiri::HTML(open("http://www.dice.com/job/results/programming?b=7&caller=searchagain&q=#{escaped_term}&src=19&u=1&x=all&p=k"))
+
+    doc.css('.summary').first.css('tbody').first.css('tr').each do |tr|
+      td = tr.css('td')
+
+      if td.first and td.first.css('div')
+        embedded_div = td.first.css('div')
+
+        if embedded_div.first and embedded_div.first.css('a')
+          a_tag = embedded_div.first.css('a')
+
+          date = td.last.text.split("-")
+
+          date.pop
+
+          jobs << Job.new("Your home", a_tag.first.text, "http://www.dice.com" + a_tag.first[:href], "Your Home", date.join(' '), "Telecommute")
         end
       end
     end
