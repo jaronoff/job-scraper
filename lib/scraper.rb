@@ -7,7 +7,6 @@ class Scraper
 
     # Craigslist
     # ==========
-=begin
     time = Time.new - 10000
 
     month = I18n.t("date.abbr_month_names")[time.month]
@@ -43,8 +42,6 @@ class Scraper
           doc = Nokogiri::HTML(open(url, 'User-Agent' => 'ruby'))
 
           doc.css(".row").map do |row|
-            puts "well it works"
-
             date = row.css(".date").text
 
             location = row.css(".pnr").text.to_s[2..-2]
@@ -55,6 +52,9 @@ class Scraper
 
             link = a_tag[:href]
 
+            if link[0] != "h"
+              link = "http://#{city}.craigslist.org" + link
+            end
 
             if date.include? current_month
               post_date = date.split(" ")
@@ -79,7 +79,7 @@ class Scraper
         end
       end
     end
-=end
+
     # We Work Remotely
     # =================
     escaped_term = CGI.escape(search_term)
