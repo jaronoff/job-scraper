@@ -4,7 +4,7 @@ class Scraper
 
   def self.cl(search_term)
     jobs = []
-
+=begin
     # Craigslist
     # ==========
     time = Time.new - 10000
@@ -79,7 +79,7 @@ class Scraper
         end
       end
     end
-
+=end
     # We Work Remotely
     # =================
     escaped_term = CGI.escape(search_term)

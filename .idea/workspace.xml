@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4d2fa39f-c67a-4dc0-8463-c1ff3a47fce6" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/scraper.rb" afterPath="$PROJECT_DIR$/lib/scraper.rb" />
     </list>
     <ignored path="clss.iws" />
@@ -34,7 +33,7 @@
       <file leaf-file-name="scraper.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/scraper.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="54" column="25" selection-start="1334" selection-end="1334" vertical-scroll-proportion="0.7811935">
+            <state line="6" column="6" selection-start="104" selection-end="104" vertical-scroll-proportion="0.16274865">
               <folding />
             </state>
           </provider>
@@ -720,7 +719,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/scraper.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="25" selection-start="1334" selection-end="1334" vertical-scroll-proportion="0.7811935">
+        <state line="6" column="6" selection-start="104" selection-end="104" vertical-scroll-proportion="0.16274865">
           <folding />
         </state>
       </provider>
