@@ -68,7 +68,13 @@ class Scraper
               url[-1] == "g" ? type = "Telecommute" : type = "Gig"
 
               if job_title.present?
-                selected = jobs.select{ |job| job.url == link }
+                selected = jobs.select do |job|
+                  check_one = job.url == link
+
+                  job_title.length >= 15 ? check_two = job.title[0..15] == job_title[0..15] : check_two = false
+
+                  check_one or check_two
+                end
 
                 if selected.blank?
                   jobs << Job.new(city, job_title, link, proper_city_name.capitalize, date, type)
