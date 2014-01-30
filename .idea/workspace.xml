@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="4d2fa39f-c67a-4dc0-8463-c1ff3a47fce6" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/scraper.rb" afterPath="$PROJECT_DIR$/lib/scraper.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/pages/home.html" afterPath="$PROJECT_DIR$/app/views/pages/home.html" />
     </list>
     <ignored path="clss.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -22,19 +22,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="home.html" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="home.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/pages/home.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="26" selection-start="1169" selection-end="1169" vertical-scroll-proportion="0.0">
+            <state line="31" column="49" selection-start="1192" selection-end="1192" vertical-scroll-proportion="0.026785715">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="scraper.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="scraper.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/scraper.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="87" column="4" selection-start="2303" selection-end="2303" vertical-scroll-proportion="0.61986303">
+            <state line="87" column="4" selection-start="2303" selection-end="2303" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -139,8 +139,8 @@
         <option value="$PROJECT_DIR$/app/assets/stylesheets/jobs.css.scss" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/master.js" />
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/pages/home.html" />
         <option value="$PROJECT_DIR$/lib/scraper.rb" />
+        <option value="$PROJECT_DIR$/app/views/pages/home.html" />
       </list>
     </option>
   </component>
@@ -176,6 +176,8 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="RailsProjectView" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -304,17 +306,15 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="RailsProjectView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="org.jetbrains.plugins.ruby.settings.RubyIdeSdkConfigurable" />
     <property name="recentsLimit" value="5" />
-    <property name="options.searchVisible" value="true" />
+    <property name="options.lastSelected" value="org.jetbrains.plugins.ruby.settings.RubyIdeSdkConfigurable" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -556,7 +556,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30455637" sideWeight="0.6712963" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31015188" sideWeight="0.6712963" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
@@ -697,13 +697,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/pages/home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="26" selection-start="1169" selection-end="1169" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
         <state line="2" column="0" selection-start="20" selection-end="20" vertical-scroll-proportion="0.0">
@@ -720,7 +713,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/scraper.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="87" column="4" selection-start="2303" selection-end="2303" vertical-scroll-proportion="0.61986303">
+        <state line="87" column="4" selection-start="2303" selection-end="2303" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/pages/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="49" selection-start="1192" selection-end="1192" vertical-scroll-proportion="0.026785715">
           <folding />
         </state>
       </provider>
