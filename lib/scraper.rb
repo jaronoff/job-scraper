@@ -2,6 +2,8 @@ class Scraper
   require 'nokogiri'
   require 'open-uri'
 
+  @@months = {"Jan" => 1, "Feb" => 2}
+
   def self.cl(search_term)
     jobs = []
 =begin
@@ -77,6 +79,10 @@ class Scraper
                 end
 
                 if selected.blank?
+                  puts post_date
+
+                  #date_as_i = (@@months[split_date.first] * 100) + split_date.last.to_i
+
                   jobs << Job.new(city, job_title, link, proper_city_name.capitalize, date, type)
                 end
               end
@@ -103,10 +109,15 @@ class Scraper
 
           link = "https://weworkremotely.com" + job.css("a")[0][:href]
 
-          jobs << Job.new("Your Home", title, link, "Your Home", date, "Telecommute")
+          split_date = date.split(" ")
+
+          date_as_i = (@@months[split_date.first] * 100) + split_date.last.to_i
+
+          jobs << Job.new("Your Home", title, link, "Your Home", date, "Telecommute", date_as_i)
         end
       end
     end
+
 
     # Dice.com
     # =========
@@ -127,11 +138,18 @@ class Scraper
 
           date.pop
 
-          jobs << Job.new("Your home", a_tag.first.text, "http://www.dice.com" + a_tag.first[:href], "Your Home", date.join(' '), "Telecommute")
+          split_date = date
+
+          date = date.join(' ')
+
+          date_as_i = (@@months[split_date.first] * 100) + split_date.last.to_i
+
+          jobs << Job.new("Your home", a_tag.first.text, "http://www.dice.com" + a_tag.first[:href], "Your Home", date, "Telecommute", date_as_i)
         end
       end
     end
 
-    return jobs
+  return jobs
+
   end
 end

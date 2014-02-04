@@ -56,7 +56,7 @@
 
   <div ng-show="searched" class="col-md-10 col-md-offset-1">
     <table class="table">
-      <tr ng-repeat="job in jobs | filter:jobFilter">
+      <tr ng-repeat="job in jobs | filter:jobFilter | orderBy:'date_as_i':true">
         <td jobdate></td>
         <td jobtitle></td>
         <td joblocation></td>

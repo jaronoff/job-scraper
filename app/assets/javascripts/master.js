@@ -68,7 +68,7 @@ angular.module("JobScraper", [])
         $scope.loading = false;
       }).
       error(function(data, status) {
-        console.log("Something went wrong " + data);
+        console.log("Something went wrong ");
       });
     }
   }
