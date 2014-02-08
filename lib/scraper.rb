@@ -173,6 +173,45 @@ class Scraper
         jobs << Job.new("Your Home", title, link, "Your Home", date, "Telecommute", date_as_i)
       end
     end
+
+    # Top Ruby Jobs
+    # =============
+    doc = Nokogiri::HTML(open("https://toprubyjobs.com/jobs?utf8=%E2%9C%93&filter%5B%5D=contract&filter%5B%5D=freelance&filter%5B%5D=remote&q="))
+
+    doc.css('#jobs').first.css('.job').each do |job|
+      title = job.css('h4').first.text
+
+      link = "https://toprubyjobs.com" + job.css('h4').first.css('a').first[:href]
+
+      date = "Recently"
+
+      date_as_i = (Time.now.month * 100) + Time.now.day
+
+      jobs << Job.new("Your Home", title, link, "Your Home", date, "Telecommute", date_as_i)
+    end
+
+    # Rubyjobs.io
+    # ===========
+    doc = Nokogiri::HTML(open("http://rubyjobs.io/"))
+
+    doc.css('.jobs').first.css('tbody').first.css('.job').each do |job|
+      title = job.css('.title').first.text
+
+      link = 'http://rubyjobs.io/' + job.css('.title').first.css('a').first[:href]
+
+      location = job.css('.location').first.text
+
+      date = job.css('.date').first.css('em').first[:title][0..9].split('-')
+
+      date_as_i = (date[1].to_i * 100) + date[2].to_i
+
+      date = @@months.key(date[1].to_i) + " " + date[2]
+
+      city = location.split(',').first
+
+      jobs << Job.new(city, title, link, location, date, "Telecommute", date_as_i)
+    end
+
     return jobs
   end
 end

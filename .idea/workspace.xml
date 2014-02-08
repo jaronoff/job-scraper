@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4d2fa39f-c67a-4dc0-8463-c1ff3a47fce6" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/scraper.rb" afterPath="$PROJECT_DIR$/lib/scraper.rb" />
     </list>
     <ignored path="clss.iws" />
@@ -711,16 +710,16 @@
         <state line="70" column="43" selection-start="1409" selection-end="1409" vertical-scroll-proportion="0.81239533" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/job.rb">
+    <entry file="file://$PROJECT_DIR$/app/views/pages/home.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="17" selection-start="89" selection-end="138" vertical-scroll-proportion="0.0">
+        <state line="63" column="27" selection-start="2074" selection-end="2074" vertical-scroll-proportion="-16.458334">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/pages/home.html">
+    <entry file="file://$PROJECT_DIR$/lib/job.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="27" selection-start="2074" selection-end="2074" vertical-scroll-proportion="-16.458334">
+        <state line="3" column="17" selection-start="89" selection-end="138" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
