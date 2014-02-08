@@ -2,11 +2,11 @@ class Scraper
   require 'nokogiri'
   require 'open-uri'
 
-  @@months = {"Jan" => 1, "Feb" => 2}
+  @@months = { "Jan" => 1, "Feb" => 2, "Nov" => 11, "Dec" => 12 }
 
   def self.cl(search_term)
     jobs = []
-=begin
+
     # Craigslist
     # ==========
     time = Time.new - 10000
@@ -79,11 +79,11 @@ class Scraper
                 end
 
                 if selected.blank?
-                  puts post_date
+                  puts post_date.inspect
 
-                  #date_as_i = (@@months[split_date.first] * 100) + split_date.last.to_i
+                  date_as_i = (@@months[post_date.first] * 100) + post_date.last.to_i
 
-                  jobs << Job.new(city, job_title, link, proper_city_name.capitalize, date, type)
+                  jobs << Job.new(city, job_title, link, proper_city_name.capitalize, date, type, date_as_i)
                 end
               end
             end
@@ -91,7 +91,7 @@ class Scraper
         end
       end
     end
-=end
+
     # We Work Remotely
     # =================
     escaped_term = CGI.escape(search_term)
@@ -149,7 +149,30 @@ class Scraper
       end
     end
 
-  return jobs
+    # Hire There
+    # ==========
+    escaped_term = CGI.escape(search_term)
 
+    doc = Nokogiri::HTML(open("https://hirethere.com/jobs/search?search=#{escaped_term}"))
+
+    doc.css('#jobList').css('li').each do |li|
+
+      link = "https://hirethere.com" + li.css('a').first[:href]
+
+      title = li.css('a').first.css('h5').first.text
+
+      date = li.css('a').first.css('p').last.css('time').first[:datetime]
+
+      date = date.split(" ")[1..3]
+
+      date_as_i = (@@months[date[1]].to_i * 100) + date[0].to_i
+
+      date = date[1] + " " + date[0]
+
+      if date_as_i < ((Time.now.month * 100) + 100)
+        jobs << Job.new("Your Home", title, link, "Your Home", date, "Telecommute", date_as_i)
+      end
+    end
+    return jobs
   end
 end
